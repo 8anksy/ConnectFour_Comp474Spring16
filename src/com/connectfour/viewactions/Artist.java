@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.lwjgl.LWJGLException;
-import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.*;
 import org.lwjgl.opengl.DisplayMode;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
@@ -16,7 +16,7 @@ public class Artist {
 	//Width and Height of the user interface window
 	public static final int WIDTH = 448, HEIGHT = 512;
 	
-	public static void BeginSession(){
+	public static void BeginSession() {
 		
 		Display.setTitle("Connect Four");
 		try {

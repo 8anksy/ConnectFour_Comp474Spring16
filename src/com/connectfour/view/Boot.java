@@ -14,7 +14,7 @@ import static com.connectfour.viewactions.Artist.*;
 public class Boot {
 
 	public Boot(){
-	
+		System.err.println("booting up view now...");
 		BeginSession();
 		
 		Board map = new Board(7,7);
@@ -34,7 +34,5 @@ public class Boot {
 		}
 		Display.destroy();
 	}
-	public static void main(String[] args){
-		new Boot();
-	}
+	
 }

@@ -38,9 +38,9 @@ public class Board {
 	
 	public void printBoard() {
         for (int row = 0; row < height; ++row) {
-            System.out.print("|");
+            System.out.print("| ");
             for (int col = 0; col < width; ++col) {
-            	System.out.print(checker[row][col] + "|");
+            	System.out.print(checker[row][col] + "| ");
             }
             System.out.println();
         }
