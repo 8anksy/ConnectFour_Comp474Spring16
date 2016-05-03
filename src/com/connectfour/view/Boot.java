@@ -34,7 +34,7 @@ public class Boot {
 	}
 	
 	public void playGame() {
-		System.err.println("booting up view now...");
+		System.err.println("Booting up view now...");
 
 		BeginSession();
 		StateManager.initializeMainMenu();
@@ -42,7 +42,12 @@ public class Boot {
 			StateManager.initializeMainMenu();
 			Display.update();
 			Display.sync(60);
-			
+			if (Display.isCloseRequested()){
+				System.err.println("Closing from menu...");
+				Display.destroy();
+				System.err.println("Display destroyed");
+				System.exit(0);
+			}
         }
 		 if(StateManager.gameState==GameState.GAMEPUSH || StateManager.gameState == GameState.SINGLE_PLAYER_EASY_PUSH) {
 			 this.map=new BoardPush(); 
