@@ -44,7 +44,7 @@ public class Boot {
 			Display.sync(60);
 			
         }
-		 if(StateManager.gameState==GameState.GAMEPUSH) {
+		 if(StateManager.gameState==GameState.GAMEPUSH || StateManager.gameState == GameState.SINGLE_PLAYER_EASY_PUSH) {
 			 this.map=new BoardPush(); 
 		 }
 		map.initializeBoard();		
@@ -56,23 +56,14 @@ public class Boot {
              * then starts game
              */
 			
-			//grid.Draw();
-			//DrawQuadTex(FastTex("RedPiece"), 0, 0, 64, 64);
+			
 			grid.updateBoard(map);
 			grid.takeInput(map);
 			
 			Display.update();
 			Display.sync(60);
 			
-			if (TileGrid.isReset) {
-				map = new Board();
-				map.initializeBoard();
-				grid = new TileGrid(map);
-				grid.updateBoard(map);
-				Display.update();
-				Display.sync(60);
-				TileGrid.isReset = false;
-			}
+			
 			
 			if (TileGrid.isUpdateNeeded) {
 				grid.updateBoard(map);
@@ -86,7 +77,7 @@ public class Boot {
 	            this.result = winCheck.getWinner(map);
 	            TileGrid.isWinChecked = true;
 			}
-            
+			//below will display who won the game for two seconds before closing
             if (result=='B'){
             	System.out.println("Black wins!");
             	Display.update();
@@ -100,7 +91,7 @@ public class Boot {
 				}            	
             	map.isFinished=true;
             }
-            //below will display who won the game for two seconds before closing
+            
             if (result=='R'){
             	System.out.println("Red wins!");
             	Display.update();

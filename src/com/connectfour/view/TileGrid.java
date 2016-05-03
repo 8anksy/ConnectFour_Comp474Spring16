@@ -87,7 +87,8 @@ public class TileGrid {
 	//lets us set actions when buttons are pressed
 	public void takeInput(Board board){
 		
-		if (StateManager.gameState == GameState.SINGLE_PLAYER_EASY && board.currentColor == 'R') {
+		if (StateManager.gameState == GameState.SINGLE_PLAYER_EASY && board.currentColor == 'R'||
+				StateManager.gameState == GameState.SINGLE_PLAYER_EASY_PUSH && board.currentColor == 'R') {
 			int boardColumn = EasyRobot.getRandomColumn();
 			board.putColorChar(boardColumn, board.currentColor);
 			isWinChecked = false;

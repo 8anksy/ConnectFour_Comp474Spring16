@@ -44,7 +44,7 @@ public class MainMenu {
 				StateManager.setState(GameState.GAMEPUSH);
 			} 
 			if (menuUI.isButtonClicked("SinglePushE")){
-				StateManager.setState(GameState.GAMEPUSH);
+				StateManager.setState(GameState.SINGLE_PLAYER_EASY_PUSH);
 			} 
 			if (menuUI.isButtonClicked("SinglePushH")){
 				StateManager.setState(GameState.GAMEPUSH);
