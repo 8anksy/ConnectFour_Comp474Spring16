@@ -47,10 +47,7 @@ public class Boot {
 			 this.map=new BoardPush(); 
 		 }
 		map.initializeBoard();		
-		grid = new TileGrid(map);	
-		grid.updateBoard(map);
-		Display.update();
-		Display.sync(60);
+		grid = new TileGrid(map);
 		while(!Display.isCloseRequested() && map.isFinished==false) {
             /*
              * Originally starts game in main menu 
@@ -60,9 +57,11 @@ public class Boot {
 			
 			//grid.Draw();
 			//DrawQuadTex(FastTex("RedPiece"), 0, 0, 64, 64);
+			grid.updateBoard(map);
+			grid.takeInput(map);
+			
 			Display.update();
 			Display.sync(60);
-			grid.takeInput(map);
 			
 			if (TileGrid.isReset) {
 				map = new Board();
