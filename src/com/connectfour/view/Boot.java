@@ -39,9 +39,10 @@ public class Boot {
 		BeginSession();
 		StateManager.initializeMainMenu();
 		while(StateManager.gameState==GameState.MAINMENU){
+			StateManager.initializeMainMenu();
 			Display.update();
 			Display.sync(60);
-        	StateManager.stateUpdate();
+			
         }
 		 if(StateManager.gameState==GameState.GAMEPUSH) {
 			 this.map=new BoardPush(); 

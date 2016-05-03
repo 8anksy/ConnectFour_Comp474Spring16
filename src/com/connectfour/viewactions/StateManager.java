@@ -19,17 +19,24 @@ public class StateManager {
 	public static Board board;
 	
 	public static void initializeMainMenu() {
-		if(mainMenu==null)
-			mainMenu=new MainMenu();
-		mainMenu.menuUpdate();
+		switch(gameState){
+		case MAINMENU:
+			if(mainMenu==null)
+				mainMenu=new MainMenu();
+			mainMenu.menuUpdate();
+		case GAME:
+			break;
+		case GAMEPUSH:
+			break;
+		case SINGLE_PLAYER_EASY:
+			break;
+		
+		}
 	}
 	
-	public static void stateUpdate(){
-		if ((Mouse.isButtonDown(0))) {
-			mainMenu.updateButtons();
-		}
+	
 		
-	}
+	
 	
 	public static void setState(GameState newState){
 		gameState = newState;

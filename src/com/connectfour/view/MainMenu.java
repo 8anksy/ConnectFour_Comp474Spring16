@@ -29,27 +29,36 @@ public class MainMenu {
 	}
 	
 	public void updateButtons(){
-		if (menuUI.isButtonClicked("TwoPlayerReg")){
-			StateManager.setState(GameState.GAME);
-		} else if (menuUI.isButtonClicked("SingleRegE")){
-			StateManager.setState(GameState.SINGLE_PLAYER_EASY);
-		} else if (menuUI.isButtonClicked("SingleRegH")){
-			StateManager.setState(GameState.GAME);
-		} else if (menuUI.isButtonClicked("TwoPlayerPush")){
-			StateManager.setState(GameState.GAMEPUSH);
-		} else if (menuUI.isButtonClicked("SinglePushE")){
-			StateManager.setState(GameState.GAMEPUSH);
-		} else if (menuUI.isButtonClicked("SinglePushH")){
-			StateManager.setState(GameState.GAMEPUSH);
-		}
+		if(Mouse.isButtonDown(0)){
+			if (menuUI.isButtonClicked("TwoPlayerReg")){
+				System.out.println("BUTTON PRESSED");
+				StateManager.setState(GameState.GAME);
+			} 
+			if (menuUI.isButtonClicked("SingleRegE")){
+				StateManager.setState(GameState.SINGLE_PLAYER_EASY);
+			} 
+			if (menuUI.isButtonClicked("SingleRegH")){
+				StateManager.setState(GameState.GAME);
+			} 
+			if (menuUI.isButtonClicked("TwoPlayerPush")){
+				StateManager.setState(GameState.GAMEPUSH);
+			} 
+			if (menuUI.isButtonClicked("SinglePushE")){
+				StateManager.setState(GameState.GAMEPUSH);
+			} 
+			if (menuUI.isButtonClicked("SinglePushH")){
+				StateManager.setState(GameState.GAMEPUSH);
+			}
+		
+		}		
 		
 	}
 	
 	public void menuUpdate() {
 		DrawQuadTex(background,0,0,512,512);		
 		menuUI.draw();
-		Display.update();
-		Display.sync(60);
+		updateButtons();
+		
 	}
 
 }
