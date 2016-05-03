@@ -136,9 +136,7 @@ public class TileGrid {
 						isUpdateNeeded = true;
 					}
 					if(boardUI.isButtonClicked("Reset")){
-						isWinChecked = true;
-						isUpdateNeeded = false;
-						isReset = true;
+					 board.initializeBoard();
 					}
 				}
             }
