@@ -7,6 +7,9 @@ import com.connectfour.model.Board;
 import com.connectfour.view.Boot;
 import com.connectfour.view.MainMenu;
 
+/**
+  * The StateManager is...well, it manages the state of the game.
+  */
 public class StateManager {
 	
 	public static enum GameState {
@@ -39,7 +42,10 @@ public class StateManager {
 	
 		
 	
-	
+	/**
+	  * Setter method for updating the state of the game
+	  * @param newState (required) the desired new state of the game
+	  */
 	public static void setState(GameState newState){
 		gameState = newState;
 	}

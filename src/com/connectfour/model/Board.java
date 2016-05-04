@@ -12,7 +12,7 @@ public class Board {
 	
 	
 	/**
-	  * Constructor
+	  * Default Constructor
 	  * 
 	  * Takes no parameters and calls the overloaded constructor below
 	  */
@@ -54,7 +54,7 @@ public class Board {
 	}
 	
 	/** 
-	  * Fills our board with blank spaces so no index contains a null value
+	  * Fills the board with blank spaces so no index contains a null value
 	  */
 	public void initializeBoard() {
 		// Initialize with spaces
@@ -88,7 +88,7 @@ public class Board {
 	  * @param color (required) must be a char 'R' or 'B'.
 	  * @return the opposite char given in the constructor
 	  */
-	protected char colorSwitch(char color){
+	public char colorSwitch(char color){
 		if(color=='R'){
 			System.out.println("Black's turn now!");
 			color='B';

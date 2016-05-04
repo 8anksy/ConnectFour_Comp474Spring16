@@ -3,6 +3,10 @@ package com.connectfour.view;
 import org.newdawn.slick.opengl.Texture;
 import  static com.connectfour.viewactions.Artist.*;
 
+/**
+  * This class is a simple object that contains the information required to draw
+  * objects on the display.
+ */
 public class Tile {
 	
 	private float x, y, width, height;
@@ -17,7 +21,10 @@ public class Tile {
 		this.type = type;
 		this.texture = FastTex(type.textureName);
 	}
-	
+
+	/**
+	  * Draws the Tile to the diplay
+	 */
 	public void Draw() {
 		DrawQuadTex(texture, x, y, width, height);
 	}
@@ -54,6 +61,9 @@ public class Tile {
 		this.height = height;
 	}
 
+	/**
+	  * @return the Texture object pulled from the resources folder
+	 */
 	public Texture getTexture() {
 		return texture;
 	}
@@ -62,6 +72,9 @@ public class Tile {
 		this.texture = texture;
 	}
 
+	/**
+	  * @return the TileType of this Tile
+	 */
 	public TileType getType() {
 		return type;
 	}

@@ -10,7 +10,13 @@ import com.connectfour.viewactions.UI;
 
 import static com.connectfour.viewactions.Artist.*;
 
+/**
+ * This class instantiates all clickable items on the display and makes state changes
+ * accordingly. It contains a mouseclick listener to make the necessary changes.
+ */
+
 public class MainMenu {
+	
 
 	private Texture background;
 	private Texture classButton;
@@ -28,6 +34,9 @@ public class MainMenu {
 		
 	}
 	
+	/**
+	  *The mouseclick listener that changes the game state based on which button is clicked. 
+	  */
 	public void updateButtons(){
 		if(Mouse.isButtonDown(0)){
 			if (menuUI.isButtonClicked("TwoPlayerReg")){
@@ -54,6 +63,9 @@ public class MainMenu {
 		
 	}
 	
+	/**
+	  * Redraws the buttons and listens for a user click event
+	  */
 	public void menuUpdate() {
 		DrawQuadTex(background,0,0,512,512);		
 		menuUI.draw();

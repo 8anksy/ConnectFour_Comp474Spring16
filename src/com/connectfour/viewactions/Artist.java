@@ -12,10 +12,21 @@ import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
 
+
+/**
+ * This class manages the creation of our display and facilitates the drawing of
+ * all our drawable objects. Also serves as the entry point for retrieving Textures
+ * from our resources file.
+ */
+
 public class Artist {
 	//Width and Height of the user interface window
 	public static final int WIDTH = 512, HEIGHT = 512;
 	
+	
+	/**
+	  * Creates our display and intializes the setup of the new window
+	  */
 	public static void BeginSession() {
 		
 		Display.setTitle("Connect Four");
@@ -36,9 +47,15 @@ public class Artist {
 		glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 		
 		
-		
 	}
 	
+	/**
+	  * Draws our drawable objects
+	  * @param x (required) the x position of the object
+	  * @param y (required) the y position of the object
+	  * @param width (required) the width of the object
+	  * @param height (required) the height of the object
+	  */
 	public static void DrawQuad(float x, float y, float width, float height ){
 		glBegin(GL_QUADS);
 		glVertex2f(x, y);
@@ -48,7 +65,14 @@ public class Artist {
 		glEnd();
 	}
 
-	//Allows us to create a square with a texture
+	/**
+	  * Draws square objects with an applied texture relative to the other drawn objects
+	  * @param tex (required) the Texture object to be drawn
+	  * @param x (required) the x position of the object
+	  * @param y (required) the y position of the object
+	  * @param width (required) the width of the object
+	  * @param height (required) the height of the object
+	  */
 	public static void DrawQuadTex(Texture tex, float x, float y, float width, float height){
 		tex.bind();
 		//lets us make tile positioning relative
@@ -67,6 +91,12 @@ public class Artist {
 		
 	}
 	
+	/**
+	  * Retrieves the texture from our resource folder
+	  * @param path (required) the path of the target resource
+	  * @param fileType (required) the filetype of the target resource
+	  * @return the texture retrieved by the path given
+	  */
 	public static Texture LoadTexture(String path, String fileType) {
 		Texture tex = null;
 		InputStream in = ResourceLoader.getResourceAsStream(path);
@@ -78,7 +108,12 @@ public class Artist {
 		return tex;
 	}
 	
-	//automates the source location so that we only need to type in the file name
+	/**
+	  * A helper method to make texture retrieval easier. Only need a filename
+	  * @param name (required) the name of the file in the resource folder
+	  * @return the texture retrieved by the path given
+	  */
+	
 	public static Texture FastTex(String name){
 		Texture tex = null;
 		tex = LoadTexture("com/connectfour/res/"+ name + ".png", "PNG");

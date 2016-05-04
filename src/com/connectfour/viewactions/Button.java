@@ -2,12 +2,26 @@ package com.connectfour.viewactions;
 
 import org.newdawn.slick.opengl.Texture;
 
+/**
+  * The button object contains the info required to generate clickable
+  * panes on the Display.
+  */
 public class Button {
 	
 	private String name;
 	private Texture texture;
 	private int x, y, width, height;
 	
+	/**
+	  * Constuctor
+	  * 
+	  * @param name (required) the designated name of the button
+	  * @param texture (required) the Texture object pulled from the resources folder
+	  * @param x (required) the x position of the button
+	  * @param y (required) the y position of the button
+	  * @param width : the width of the button
+	  * @param height : the height of the button
+	 */
 	public Button (String name, Texture texture, int x, int y, int width, int height){
 		this.name = name;
 		this.texture = texture;
@@ -17,6 +31,14 @@ public class Button {
 		this.height = height;
 	}
 	
+	/**
+	  * Constuctor
+	  * 
+	  * @param name (required) the designated name of the button
+	  * @param texture (required) the Texture object pulled from the resources folder
+	  * @param x (required) the x position of the button
+	  * @param y (required) the y position of the button
+	 */
 	public Button (String name, Texture texture, int x, int y){
 		
 		this.name = name;

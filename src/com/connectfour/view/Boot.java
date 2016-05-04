@@ -18,7 +18,10 @@ import static org.lwjgl.opengl.GL11.*;
 import static com.connectfour.viewactions.Artist.*;
 
 
-
+/**
+  * This class is responsible for creating/closing the windowed game
+  * It is the mediator between all the supporting game classes
+  */
 public class Boot {
 	
 	//private UI gameUI;
@@ -32,7 +35,11 @@ public class Boot {
 	public Boot(Board gameBoard){
 		this.map = gameBoard;
 	}
-	
+
+	/**
+	  * Instantiates the game and creates the display window
+	  * Checks for win conditions while the game is played until the window is closed
+	  */
 	public void playGame() {
 		System.err.println("Booting up view now...");
 
@@ -62,8 +69,8 @@ public class Boot {
              */
 			
 			
-			grid.updateBoard(map);
-			grid.takeInput(map);
+			grid.updateBoard();
+			grid.takeInput();
 			
 			Display.update();
 			Display.sync(60);
@@ -71,7 +78,7 @@ public class Boot {
 			
 			
 			if (TileGrid.isUpdateNeeded) {
-				grid.updateBoard(map);
+				grid.updateBoard();
 				Display.update();
 				Display.sync(60);
 				TileGrid.isUpdateNeeded = false;
@@ -79,7 +86,7 @@ public class Boot {
 			
 			if (! TileGrid.isWinChecked) {
 				WinCheck winCheck = new WinCheck(map);
-	            this.result = winCheck.getWinner(map);
+	            this.result = winCheck.getWinner();
 	            TileGrid.isWinChecked = true;
 			}
 			//below will display who won the game for two seconds before closing
@@ -130,8 +137,4 @@ public class Boot {
 		Display.destroy();
 		System.err.println("Display destroyed");
 	}
-	
-	/*public static void main(String[] args){
-		new Boot(new Board(7,7) );
-	}*/
 }

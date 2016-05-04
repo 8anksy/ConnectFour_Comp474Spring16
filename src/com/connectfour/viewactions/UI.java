@@ -5,10 +5,14 @@ import static com.connectfour.viewactions.Artist.*;
 
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.opengl.Texture;
-
+/**
+  * This UI class is a container for all the clickable objects in our Display
+  * Buttons are added to the UI and are displayed using the Artist class
+  */
 public class UI {
 	
 	private ArrayList<Button> buttonList;
+	
 	
 	public UI(){
 		buttonList = new ArrayList<Button>();
@@ -33,6 +37,11 @@ public class UI {
 		return false;
 	}
 	
+	/**
+	  * Used to retrieve a button from the UI
+	  * @param buttonName (required) 
+	  * @return the button searched for
+	  */
 	private Button getButton(String buttonName){
 		for (Button b: buttonList){
 			if (b.getName().equals(buttonName)){
@@ -46,6 +55,10 @@ public class UI {
 		for (Button b: buttonList){
 			DrawQuadTex(b.getTexture(), b.getX(), b.getY(), b.getWidth(), b.getHeight());
 		}
+	}
+	
+	public int getButtonListSize() {
+		return buttonList.size();
 	}
 
 }

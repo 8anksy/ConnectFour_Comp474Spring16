@@ -11,6 +11,11 @@ import com.connectfour.viewactions.StateManager;
 import com.connectfour.viewactions.UI;
 import com.connectfour.viewactions.StateManager.GameState;
 
+/**
+  * This class is a container for our drawable pieces. It refers to the basic Board
+  * data object and mirrors its state with Tile pieces. It also holds our clickable buttons
+  * for the user and listens for click events. 
+*/
 public class TileGrid {
 	public UI boardUI;
 	public Tile[][] map;
@@ -57,9 +62,11 @@ public class TileGrid {
 		}				
 	}
 	
-	
-	//to be placed in boot while loop to update the view of the board
-	public void updateBoard(Board board){
+	/**
+	  * to be placed in boot while-loop to update the view of the board
+	  * Updates the TileGrid to reflect Board state
+	  */
+	public void updateBoard(){
 		for (int i = 0; i <map.length; i++){
 			
 			for (int j = 0; j<map[i].length; j++){
@@ -69,7 +76,7 @@ public class TileGrid {
 				 * r is red piece
 				 * b is black piece
 				 */
-				switch(board.checker[i][j]){
+				switch(boardDisplay.checker[i][j]){
 				case ' ':
 					map[i][j] = new Tile(j * 64, i * 64, 64,64, TileType.EmptySlot);
 					break;					
@@ -82,15 +89,19 @@ public class TileGrid {
 				}				
 			}
 		}
-		this.Draw(board);
+		this.Draw();
 	}
-	//lets us set actions when buttons are pressed
-	public void takeInput(Board board){
+	
+	/**
+	  * The listener method used to take user input when selecting a column to place a piece.
+	  * Also updates the Board 
+	 */
+	public void takeInput(){
 		
-		if (StateManager.gameState == GameState.SINGLE_PLAYER_EASY && board.currentColor == 'R'||
-				StateManager.gameState == GameState.SINGLE_PLAYER_EASY_PUSH && board.currentColor == 'R') {
+		if (StateManager.gameState == GameState.SINGLE_PLAYER_EASY && boardDisplay.currentColor == 'R'||
+				StateManager.gameState == GameState.SINGLE_PLAYER_EASY_PUSH && boardDisplay.currentColor == 'R') {
 			int boardColumn = EasyRobot.getRandomColumn();
-			board.putColorChar(boardColumn, board.currentColor);
+			boardDisplay.putColorChar(boardColumn, boardDisplay.currentColor);
 			isWinChecked = false;
 			isUpdateNeeded = true;
 			return;
@@ -102,54 +113,57 @@ public class TileGrid {
 				if(Mouse.getEventButtonState()){
 					
 					if(boardUI.isButtonClicked("DropButton0")){							
-						board.putColorChar(0, board.currentColor);
+						boardDisplay.putColorChar(0, boardDisplay.currentColor);
 						isWinChecked = false;
 						isUpdateNeeded = true;
 					}
 					if(boardUI.isButtonClicked("DropButton1")){							
-						board.putColorChar(1, board.currentColor);
+						boardDisplay.putColorChar(1, boardDisplay.currentColor);
 						isWinChecked = false;
 						isUpdateNeeded = true;
 					}
 					if(boardUI.isButtonClicked("DropButton2")){							
-						board.putColorChar(2, board.currentColor);
+						boardDisplay.putColorChar(2, boardDisplay.currentColor);
 						isWinChecked = false;
 						isUpdateNeeded = true;
 					}
 					if(boardUI.isButtonClicked("DropButton3")){							
-						board.putColorChar(3, board.currentColor);
+						boardDisplay.putColorChar(3, boardDisplay.currentColor);
 						isWinChecked = false;
 						isUpdateNeeded = true;
 					}
 					if(boardUI.isButtonClicked("DropButton4")){							
-						board.putColorChar(4, board.currentColor);
+						boardDisplay.putColorChar(4, boardDisplay.currentColor);
 						isWinChecked = false;
 						isUpdateNeeded = true;
 					}
 					if(boardUI.isButtonClicked("DropButton5")){							
-						board.putColorChar(5, board.currentColor);
+						boardDisplay.putColorChar(5, boardDisplay.currentColor);
 						isWinChecked = false;
 						isUpdateNeeded = true;
 					}
 					if(boardUI.isButtonClicked("DropButton6")){							
-						board.putColorChar(6, board.currentColor);
+						boardDisplay.putColorChar(6, boardDisplay.currentColor);
 						isWinChecked = false;
 						isUpdateNeeded = true;
 					}
 					if(boardUI.isButtonClicked("Reset")){
-					 board.initializeBoard();
+						boardDisplay.initializeBoard();
 					}
 				}
             }
 		}
 	}
 	
-	public void Draw(Board board){
+	/**
+	  * Draws our board to the Display
+	  */
+	public void Draw(){
 		boardUI = new UI();
 		
 		DrawQuadTex(FastTex("CurrentPlayer"), (float)448, (float)0, (float)64, (float)64);
 		//Display current player
-		if (board.currentColor=='R'){
+		if (boardDisplay.currentColor=='R'){
 			DrawQuadTex(FastTex("RedPlayer"), (float)448, (float)64, (float)64, (float)64);
 		}
 		else{

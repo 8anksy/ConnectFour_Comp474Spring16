@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="public" author="true" classpath="lib/jars/slick-util.jar;C:\Users\Jarrod X. Banks\Downloads\eclipse-java-mars-1-win32-x86_64\eclipse\plugins\org.junit_4.12.0.v201504281640\junit.jar;lib/jars/lwjgl.jar;lib/jars/lwjgl_util.jar;C:\Users\Jarrod X. Banks\Downloads\eclipse-java-mars-1-win32-x86_64\eclipse\plugins\org.hamcrest.core_1.3.0.v201303031735.jar" destdir="doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="com.connectfour.main,com.connectfour.model,com.connectfour.view,com.connectfour.robot,com.connectfour.viewactions" source="1.8" sourcepath="src;test" splitindex="true" use="true" version="true"/>
+    </target>
+</project>

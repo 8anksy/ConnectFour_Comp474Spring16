@@ -5,12 +5,22 @@ public class WinCheck {
 	private Board board;
 	private static final int CONNECT_WIN_CRITERIA = 4;
 	
+	/**
+	  * Default Constructor
+	  * 
+	  * @param board (required) a Board object 
+	  */
 	public WinCheck(Board board) {
 		this.board = board;
 	}
 	
-
-	public char getWinner(Board board) {
+	/**
+	  * Default Constructor
+	  * Calls a series of private methods that contain the logic for checking
+	  * the win conditions against the state of the board.
+	  * @return the character of the winning piece (R for red and B for black) 
+	  */
+	public char getWinner() {
 		char winner = checkHorizontal();
         if (winner != ' ') {        	
         	return winner;
@@ -38,6 +48,10 @@ public class WinCheck {
         return 'D';
 	}
 	
+	/**
+	  * Checks the entire board for any 4 pieces of the same color in a row horizontally
+	  *  @return the char of the winning color ('R' or 'B')
+	  */
 	private char checkHorizontal() {
 		char[][] checker = board.getChecker();
 		for (int row = 0; row < board.getHeight(); ++row) {
@@ -62,6 +76,10 @@ public class WinCheck {
         return ' ';
 	}
 	
+	/**
+	  * Checks the entire board for any 4 pieces of the same color in a row vertically
+	  *  @return the char of the winning color ('R' or 'B')
+	  */
 	private char checkVertical() {
 		char[][] checker = board.getChecker();
 		for (int column = 0; column < board.getWidth(); ++column) {
@@ -85,6 +103,11 @@ public class WinCheck {
         return ' ';
 	}
 	
+	/**
+	  * Checks the entire board for any 4 pieces of the same color in a row in
+	  * both diagonal directions
+	  *  @return the char of the winning color ('R' or 'B')
+	  */
 	private char checkDiagonals() {
 		
 		char[][] checker = board.getChecker();
