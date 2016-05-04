@@ -1,8 +1,5 @@
 package com.connectfour.model;
 
-import com.connectfour.view.TileGrid;
-import com.connectfour.viewactions.StateManager;
-
 public class Board {
 	public char[][] checker;
 	public char currentColor = 'B';

@@ -1,19 +1,14 @@
 package com.connectfour.view;
 
-import org.lwjgl.LWJGLException;
+
 
 import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.DisplayMode;
-import org.newdawn.slick.opengl.Texture;
 
 import com.connectfour.model.Board;
 import com.connectfour.model.BoardPush;
 import com.connectfour.model.WinCheck;
 import com.connectfour.viewactions.StateManager;
 import com.connectfour.viewactions.StateManager.GameState;
-import com.connectfour.viewactions.UI;
-
-import static org.lwjgl.opengl.GL11.*;
 
 import static com.connectfour.viewactions.Artist.*;
 

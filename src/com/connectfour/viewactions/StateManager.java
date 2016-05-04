@@ -1,8 +1,5 @@
 package com.connectfour.viewactions;
 
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.Display;
-
 import com.connectfour.model.Board;
 import com.connectfour.view.Boot;
 import com.connectfour.view.MainMenu;

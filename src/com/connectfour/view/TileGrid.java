@@ -1,12 +1,10 @@
 package com.connectfour.view;
 import static com.connectfour.viewactions.Artist.*;
-import static com.connectfour.viewactions.UI.*;
 
 import org.lwjgl.input.Mouse;
 
 import com.connectfour.model.Board;
 import com.connectfour.robot.EasyRobot;
-import com.connectfour.viewactions.Button;
 import com.connectfour.viewactions.StateManager;
 import com.connectfour.viewactions.UI;
 import com.connectfour.viewactions.StateManager.GameState;

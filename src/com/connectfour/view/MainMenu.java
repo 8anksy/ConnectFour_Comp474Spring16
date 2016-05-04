@@ -1,7 +1,6 @@
 package com.connectfour.view;
 
 import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.Display;
 import org.newdawn.slick.opengl.Texture;
 
 import com.connectfour.viewactions.StateManager;
@@ -19,7 +18,6 @@ public class MainMenu {
 	
 
 	private Texture background;
-	private Texture classButton;
 	private UI menuUI;
 	
 	public MainMenu(){

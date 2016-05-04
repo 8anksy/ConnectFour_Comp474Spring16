@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import static com.connectfour.viewactions.Artist.*;
 
 import org.lwjgl.input.Mouse;
-import org.newdawn.slick.opengl.Texture;
 /**
   * This UI class is a container for all the clickable objects in our Display
   * Buttons are added to the UI and are displayed using the Artist class
