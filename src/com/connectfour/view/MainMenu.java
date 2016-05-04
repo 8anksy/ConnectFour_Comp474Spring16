@@ -45,7 +45,7 @@ public class MainMenu {
 				StateManager.setState(GameState.SINGLE_PLAYER_EASY);
 			} 
 			if (menuUI.isButtonClicked("SingleRegH")){
-				StateManager.setState(GameState.GAME);
+				StateManager.setState(GameState.SINGLE_PLAYER_EASY);
 			} 
 			if (menuUI.isButtonClicked("TwoPlayerPush")){
 				StateManager.setState(GameState.GAMEPUSH);
@@ -54,7 +54,7 @@ public class MainMenu {
 				StateManager.setState(GameState.SINGLE_PLAYER_EASY_PUSH);
 			} 
 			if (menuUI.isButtonClicked("SinglePushH")){
-				StateManager.setState(GameState.GAMEPUSH);
+				StateManager.setState(GameState.SINGLE_PLAYER_EASY_PUSH);
 			}
 		
 		}		
