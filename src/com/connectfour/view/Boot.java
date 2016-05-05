@@ -2,6 +2,7 @@ package com.connectfour.view;
 
 
 
+import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 
 import com.connectfour.model.Board;
@@ -43,7 +44,7 @@ public class Boot {
 		while(StateManager.gameState==GameState.MAINMENU){
 			StateManager.initializeMainMenu();
 			Display.update();
-			Display.sync(60);
+			
 			if (Display.isCloseRequested()){
 				System.err.println("Closing from menu...");
 				Display.destroy();
@@ -56,6 +57,10 @@ public class Boot {
 		 }
 		map.initializeBoard();		
 		grid = new TileGrid(map);
+		
+	
+		
+		
 		while(!Display.isCloseRequested() && map.isFinished==false) {
             /*
              * Originally starts game in main menu 
@@ -64,18 +69,20 @@ public class Boot {
              */
 			
 			
-			grid.updateBoard();
+	
+			if(Mouse.isButtonDown(0)){
+					grid.updateBoard();
+			}
 			grid.takeInput();
 			
 			Display.update();
-			Display.sync(60);
-			
+	
 			
 			
 			if (TileGrid.isUpdateNeeded) {
 				grid.updateBoard();
 				Display.update();
-				Display.sync(60);
+				
 				TileGrid.isUpdateNeeded = false;
 			}
 			
@@ -83,6 +90,7 @@ public class Boot {
 				WinCheck winCheck = new WinCheck(map);
 	            this.result = winCheck.getWinner();
 	            TileGrid.isWinChecked = true;
+	            grid.updateBoard();
 			}
 			//below will display who won the game for two seconds before closing
             if (result=='B'){
