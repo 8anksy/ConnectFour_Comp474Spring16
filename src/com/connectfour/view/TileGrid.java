@@ -22,6 +22,7 @@ public class TileGrid {
 	public static boolean isWinChecked = false;
 	public static boolean isUpdateNeeded = false;
 	public static boolean isReset = false;
+	private EasyRobot easyRobot;
 	
 	
 	public TileGrid(){
@@ -57,7 +58,8 @@ public class TileGrid {
 					break;				
 				}				
 			}
-		}				
+		}
+		this.easyRobot = new EasyRobot(boardDisplay);
 	}
 	
 	/**
@@ -98,7 +100,7 @@ public class TileGrid {
 		
 		if (StateManager.gameState == GameState.SINGLE_PLAYER_EASY && boardDisplay.currentColor == 'R'||
 				StateManager.gameState == GameState.SINGLE_PLAYER_EASY_PUSH && boardDisplay.currentColor == 'R') {
-			int boardColumn = EasyRobot.getRandomColumn();
+			int boardColumn = easyRobot.getColumn();
 			boardDisplay.putColorChar(boardColumn, boardDisplay.currentColor);
 			isWinChecked = false;
 			isUpdateNeeded = true;

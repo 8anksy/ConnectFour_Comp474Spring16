@@ -6,13 +6,16 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.connectfour.model.Board;
 import com.connectfour.robot.EasyRobot;
 
 public class EasyRobotTest {
 	
+	private EasyRobot easyRobot;
+	
 	@Before
 	public void setUp() throws Exception {
-		new EasyRobot();
+		easyRobot = new EasyRobot(new Board());
 	}
 
 	@After
@@ -23,10 +26,10 @@ public class EasyRobotTest {
 	@Test
 	public void testGetRandomColumn() {
 		for (int i = 0; i < 100; i++) {
-			if (EasyRobot.getRandomColumn() < 0) {
+			if (easyRobot.getColumn() < 0) {
 				fail("Expected column out of bounds");
 				}
-			if (EasyRobot.getRandomColumn() > 7) { 
+			if (easyRobot.getColumn() > 7) { 
 				fail("Expected column out of bounds");
 				}
 		}
