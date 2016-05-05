@@ -116,7 +116,7 @@ public class Artist {
 	
 	public static Texture FastTex(String name){
 		Texture tex = null;
-		tex = LoadTexture("com/connectfour/res/"+ name + ".png", "PNG");
+		tex = LoadTexture("src/com/connectfour/res/"+ name + ".png", "PNG");
 		return tex;
 	}
 
